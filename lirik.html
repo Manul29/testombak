@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Warna & Confess</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffe2e2;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            transition: background 1s ease;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        h2 {
+            margin-bottom: 20px;
+        }
+        
+        .option {
+            padding: 12px 24px;
+            margin: 8px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            color: white;
+        }
+        
+        .pink {
+            background-color: #ff0080;
+        }
+        
+        .purple {
+            background-color: #8e44ad;
+        }
+        
+        .green {
+            background-color: #27ae60;
+        }
+        
+        .yellow {
+            background-color: #f1c40f;
+            color: #333;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .confess-text {
+            margin-top: 20px;
+            font-size: 18px;
+            animation: fadeIn 1s ease forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .photos {
+            margin-top: 20px;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .photos img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card" id="kuis">
+        <h2>Pilih warna faovritmu dulu ya!</h2>
+        <button class="option pink" onclick="jawab('pink')">Pink</button>
+        <button class="option purple" onclick="jawab('purple')">Ungu</button>
+        <button class="option green" onclick="jawab('green')">Hijau</button>
+        <button class="option yellow" onclick="jawab('yellow')">Kuning</button>
+    </div>
+
+    <div class="card hidden" id="lanjutan">
+        <div class="confess-text" id="line1">Novita Rahma Ardiana</div>
+        <div class="confess-text hidden" id="line2">haii, makasi udah mau klik linknya</div>
+        <div class="confess-text hidden" id="line3">jadi, aku mau jujur sama kamu, kalo..</div>
+        <div class="confess-text hidden" id="line4">aku udah lama banget suka sama kamu, cuman ga tau kapan harus ungkapin jadi mungkin ini cara aku ungkapin perasaanku, i just wanna say something in my heart jadi kalo kamu ga suka balik gaoaoa og, have a nice day hehe.😳❤️</div>
+        <div class="confess-text hidden" id="lineFinal">maaf ya kalo cringe hehe</div>
+    </div>
+
+    <script>
+        function jawab(warna) {
+            document.body.style.backgroundColor = warna;
+            document.getElementById("kuis").classList.add("hidden");
+            document.getElementById("lanjutan").classList.remove("hidden");
+
+            setTimeout(() => document.getElementById("line2").classList.remove("hidden"), 2000);
+            setTimeout(() => document.getElementById("line3").classList.remove("hidden"), 4000);
+            setTimeout(() => document.getElementById("line4").classList.remove("hidden"), 6000);
+            setTimeout(() => document.getElementById("lineFinal").classList.remove("hidden"), 8000);
+
+        }
+    </script>
+</body>
+
+</html>
